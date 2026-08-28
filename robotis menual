@@ -1,0 +1,44 @@
+step 1  miniconda install
+orin@localhost:~$ rm -rf ~/miniconda3
+orin@localhost:~$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
+orin@localhost:~$ bash Miniconda3-latest-Linux-aarch64.sh
+(base) orin@localhost:~/Desktop$ conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+(base) orin@localhost:~/Desktop$ conda create -y -n lerobot python=3.10
+2 channel Terms of Service accepted
+(base) orin@localhost:~/Desktop$ python --version
+Python 3.14.6
+conda activate lerobot
+(base) orin@localhost:~/Desktop$ conda activate lerobot
+(lerobot) orin@localhost:~/Desktop$
+(lerobot) orin@localhost:~/Desktop$ python --version
+Python 3.10.20
+(lerobot) orin@localhost:~/Desktop$ conda install -c conda-forge ffmpeg=6.1.1 -y
+Preparing transaction: done                                                    
+Verifying transaction: done                                                    
+Executing transaction: done                                                    
+WARNING conda.conda_pypi.main:notify_externally_managed_future(156):          
+  Did you know? You can install many PyPI packages with conda                  
+using the conda-pypi beta. Get started:                                      
+https://docs.conda.io/projects/conda/en/stable/new-features.html                          
+(lerobot) orin@localhost:~/Desktop$ git clone https://github.com/ROBOTIS-GIT/lerobot.git 
+(lerobot) orin@localhost:~/Desktop$ ls
+gnome-terminal.desktop  nv_devzone.desktop  nv_jetson_projects.desktop  nv_l4t_readme.desktop
+lerobot                 nv_forums.desktop   nv_jetson_zoo.desktop              
+(lerobot) orin@localhost:~/Desktop$ cd lerobot                                                                           
+(lerobot) orin@localhost:~/Desktop/lerobot$ pip install -e  .  
+(lerobot) orin@localhost:~/Desktop/lerobot$ pip install -e ".[dynamixel]"
+5cb820ded607bb2b27c8b00df02
+Successfully built lerobot
+Installing collected packages: dynamixel-sdk, lerobot
+  Attempting uninstall: lerobot
+    Found existing installation: lerobot 0.3.4
+    Uninstalling lerobot-0.3.4:
+      Successfully uninstalled lerobot-0.3.4
+Successfully installed dynamixel-sdk-4.0.5 lerobot-0.3.4
+리더와 팔로워 포트 확인
+   /dev/ttyACM1이 리더이다
+(lerobot) orin@localhost:~/Desktop/lerobot$ ls /dev/ttyACM* /dev/ttyUSB* 2>/dev/null
+ /dev/ttyACM0   /dev/ttyACM1
+(lerobot) orin@localhost:~/Desktop/lerobot$ ls /dev/ttyACM* /dev/ttyUSB* 2>/dev/null
+ /dev/ttyACM0
