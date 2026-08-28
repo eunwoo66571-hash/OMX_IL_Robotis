@@ -1,0 +1,25 @@
+========================================
+사용된 Python/Conda/Pip 명령어 정리
+========================================
+
+# Conda 환경 생성
+conda create -y -n lerobot python=3.10
+
+# Conda 환경 활성화
+conda activate lerobot
+
+# Python 버전 확인
+python --version
+
+# Conda 패키지 설치 (ffmpeg)
+conda install -c conda-forge ffmpeg=6.1.1 -y
+
+# Conda 채널 이용약관 동의
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+
+# Pip으로 현재 디렉토리 패키지 설치 (editable 모드)
+pip install -e .
+pip install -e ".[dynamixel]"
+
+========================================
